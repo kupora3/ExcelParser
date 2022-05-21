@@ -2,6 +2,8 @@ package com.app.excel;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
@@ -17,8 +19,8 @@ public class Main extends Application {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext("com/app/excel/config");
         AutowireCapableBeanFactory autowireCapableBeanFactory = applicationContext.getAutowireCapableBeanFactory();
         ControllerService controllerService = (ControllerServiceImpl) autowireCapableBeanFactory.getBean("controllerServiceImpl");
-        BorderPane root = controllerService.execute();
 
+        BorderPane root = controllerService.execute();
         Scene scene = new Scene(root);
         primaryStage.setTitle("Excel parser");
         primaryStage.setScene(scene);
